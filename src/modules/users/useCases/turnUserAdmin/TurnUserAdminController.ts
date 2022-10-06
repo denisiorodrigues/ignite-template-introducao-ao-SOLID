@@ -9,10 +9,10 @@ class TurnUserAdminController {
     const {user_id} = request.params;
 
     try{
-      this.turnUserAdminUseCase.execute({user_id});
-      return response.status(204).send();
+      const user = this.turnUserAdminUseCase.execute({user_id});
+      return response.json(user);
     } catch {
-      return response.status(404).send();
+      return response.status(404).json({ "error": "User not found" });
     }
   }
 }

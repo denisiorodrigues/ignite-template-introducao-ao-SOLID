@@ -74,6 +74,54 @@
                     }
                 }
             },
+            "patch" : {
+                "tags" : ["User"],
+                "sumary" : "Turn on user admin",
+                "description" : "Turn on user as admin",
+                "responses" : {
+                    "200" : {
+                        "description" : "Success",
+                        "content" : {
+                            "application/json": {
+                                "schema" : {
+                                    "type" : "array",
+                                    "items" : {
+                                        "type": "object",
+                                        "properties" : {
+                                            "id" : {
+                                                "type":"string"
+                                            },
+                                            "name" : {
+                                                "type":"string"
+                                            },
+                                            "admin" :{
+                                                "type" : "boolean"
+                                            },
+                                            "email" :{
+                                                "type" : "string"
+                                            },
+                                            "created_at" :{
+                                                "type" : "string",
+                                                "format" :"date"
+                                            },
+                                            "updated_at" :{
+                                                "type" : "string",
+                                                "format" :"date"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500" : {
+                        "description" : "Erro interno"
+                    },
+                    "400" : {
+                        "description" : "User not found"
+                    }
+                }
+            },
             "get" : {
                 "tags" : ["User"],
                 "sumary" : "List all user",
