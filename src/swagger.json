@@ -1,0 +1,127 @@
+{
+    "openapi" : "3.0.0",
+    "info" : {
+        "title" : "Aluguel de Carros Documentation",
+        "Description" : "This is a API Rent",
+        "version" : "1.0.0",
+        "contact" : {
+            "name": "Denisio Rodrigues",
+            "email" : "denisio@ymail.com"
+        }
+    },
+    "paths" : {
+        "/users" : {
+            "post" : {
+                "tags" : ["User"],
+                "sumary" : "Create a user",
+                "description" : "Create a new user",
+                "requestBody": {
+                    "content" : {
+                        "application/json" : {
+                            "schema" : {
+                                "type" : "object",
+                                "properties" : {
+                                    "name" : {
+                                        "type" : "string"
+                                    },
+                                    "description" : {
+                                        "type" : "string"
+                                    }
+                                },
+                                "exemple" : {
+                                    "name" : "user name sample",
+                                    "description" : "user e-amil sample"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses" : {
+                    "201" : {
+                        "description" : "Created",
+                        "content" : {
+                            "application/json": {
+                                "schema" : {
+                                    "type": "object",
+                                    "properties" : {
+                                        "id" : {
+                                            "type":"string"
+                                        },
+                                        "name" : {
+                                            "type":"string"
+                                        },
+                                        "admin" :{
+                                            "type" : "boolean"
+                                        },
+                                        "email" :{
+                                            "type" : "string"
+                                        },
+                                        "created_at" :{
+                                            "type" : "string",
+                                            "format" : "date"
+                                        },
+                                        "updated_at" :{
+                                            "type" : "string",
+                                            "format" : "date"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400" : {
+                        "description" : "Category already exists by e-amil"
+                    }
+                }
+            },
+            "get" : {
+                "tags" : ["User"],
+                "sumary" : "List all user",
+                "description" : "Listing all user",
+                "responses" : {
+                    "200" : {
+                        "description" : "Success",
+                        "content" : {
+                            "application/json": {
+                                "schema" : {
+                                    "type" : "array",
+                                    "items" : {
+                                        "type": "object",
+                                        "properties" : {
+                                            "id" : {
+                                                "type":"string"
+                                            },
+                                            "name" : {
+                                                "type":"string"
+                                            },
+                                            "admin" :{
+                                                "type" : "boolean"
+                                            },
+                                            "email" :{
+                                                "type" : "string"
+                                            },
+                                            "created_at" :{
+                                                "type" : "string",
+                                                "format" :"date"
+                                            },
+                                            "updated_at" :{
+                                                "type" : "string",
+                                                "format" :"date"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500" : {
+                        "description" : "Erro interno"
+                    },
+                    "400" : {
+                        "description" : "User already existis by e-mail"
+                    }
+                }
+            }
+        }
+    }
+}
