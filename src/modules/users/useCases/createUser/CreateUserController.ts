@@ -15,7 +15,7 @@ class CreateUserController {
     
     } catch (error){
 
-      return response.status(400).json({"error": "This email is already in use"});
+      return response.status(400).json({"Error": error.message});
     
     }
   }

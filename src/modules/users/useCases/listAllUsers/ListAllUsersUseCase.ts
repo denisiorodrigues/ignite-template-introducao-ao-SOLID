@@ -12,7 +12,7 @@ class ListAllUsersUseCase {
     const user = this.usersRepository.findById(user_id);
 
     if(!user || !user.admin){
-      throw new Error();
+      throw new Error("You nedd to be a administrator to list all users");
     }
 
     return this.usersRepository.list();

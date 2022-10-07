@@ -12,7 +12,7 @@ class ListAllUsersController {
       const users = this.listAllUsersUseCase.execute({ user_id });
       return response.json(users);
     } catch (error){
-      return response.status(400).json({"error" : "Probaly user not is administrator"}); 
+      return response.status(400).json({"error" : error.message }); 
     }
   }
 }
